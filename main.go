@@ -9,7 +9,7 @@ import (
 
 func main() {
 	proxy := goproxy.NewProxyHttpServer()
-	//proxy.Verbose = true
+	proxy.Verbose = true
 	proxy.Logger = log.New(os.Stdout, "", log.LstdFlags)
 
 	proxy.Logger.Println("starting on 8080")
