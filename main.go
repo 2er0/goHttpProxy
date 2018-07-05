@@ -4,15 +4,14 @@ import (
 	"github.com/elazarl/goproxy"
 	"log"
 	"net/http"
-	"os"
 )
 
 func main() {
-	proxy := goproxy.NewProxyHttpServer()
-	proxy.Verbose = true
-	proxy.Logger = log.New(os.Stdout, "", log.LstdFlags)
+	httpProxy := goproxy.NewProxyHttpServer()
+	httpProxy.Verbose = true
+	//httpProxy.Logger = log.New(os.Stdout, "", log.LstdFlags)
 
-	proxy.Logger.Println("starting on 8080")
+	log.Println("Starting proxy")
 
-	log.Fatal(http.ListenAndServe(":8080", proxy))
+	log.Fatal(http.ListenAndServe(":8080", httpProxy))
 }
